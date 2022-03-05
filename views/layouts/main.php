@@ -32,15 +32,16 @@ PublicAsset::register($this);
             <div id="sidebar">
 
                 <!-- Logo -->
-                    <h1 id="logo"><a href="#">STRIPED</a></h1>
+                    <h1 id="logo"><a href="index.php">KARELECTRO</a></h1>
 
                 <!-- Nav -->
                     <nav id="nav">
                         <ul>
-                            <li class="current"><a href="#">Latest Post</a></li>
-                            <li><a href="#">Archives</a></li>
-                            <li><a href="#">About Me</a></li>
-                            <li><a href="#">Contact Me</a></li>
+                            <li><?= Html::a('Руководителю', ['moder'], ['class' => 'btn btn-success']) ?></li>
+                            <li><?= Html::a('Детали', ['add'], ['class' => 'btn btn-success']) ?></li>
+                            <li><?= Html::a('ГСМ', ['oil'], ['class' => 'btn btn-success']) ?></li>
+                            <li><?= Html::a('Счета', ['pays'], ['class' => 'btn btn-success']) ?></li>
+                            <li><?= Html::a('Работы', ['works'], ['class' => 'btn btn-success']) ?></li>
                         </ul>
                     </nav>
 

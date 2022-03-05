@@ -52,4 +52,9 @@ class Cars extends \yii\db\ActiveRecord
             'carDriver2' => 'Car Driver 2',
         ];
     }
+
+    public static function getAll()
+    {
+        return Cars::find()->all();
+    }
 }

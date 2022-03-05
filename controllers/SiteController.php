@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use Yii;
+use app\models\Cars;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
@@ -131,8 +132,36 @@ class SiteController extends Controller
         return $this->render('moder');
     }
 
+     public function actionAdd()
+    {
+        return $this->render('add');
+    }
+
+     public function actionOil()
+    {
+        return $this->render('oil');
+    }
+
+     public function actionPays()
+    {
+        return $this->render('pays');
+    }
+
+     public function actionWorks()
+    {
+        return $this->render('works');
+    }
+
      public function actionCars()
     {
-        return $this->render('cars');
+        $cars = Cars::getAll();
+        return $this->render('cars' ,[
+
+         'cars' => $cars
+
+
+    ]);
     }
+
+
 }
