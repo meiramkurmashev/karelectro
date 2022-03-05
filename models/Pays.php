@@ -49,4 +49,9 @@ class Pays extends \yii\db\ActiveRecord
             'solution' => 'Solution',
         ];
     }
+
+     public static function getAll()
+    {
+        return Pays::find()->all();
+    }
 }

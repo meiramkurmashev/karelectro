@@ -60,4 +60,9 @@ class Details extends \yii\db\ActiveRecord
             'firm' => 'Firm',
         ];
     }
+
+     public static function getAll()
+    {
+        return Details::find()->all();
+    }
 }

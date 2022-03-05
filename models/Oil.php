@@ -52,4 +52,9 @@ class Oil extends \yii\db\ActiveRecord
             'comment' => 'Comment',
         ];
     }
+
+     public static function getAll()
+    {
+        return Oil::find()->all();
+    }
 }

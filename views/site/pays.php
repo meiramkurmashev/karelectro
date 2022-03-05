@@ -1,6 +1,6 @@
 <?php
 include("fon.php");?>
-<?php if($_COOKIE["login"]!="buh"){echo "Please, <a href='index.php'>login</a>";exit;} ?>
+<?php /*if($_COOKIE["login"]!="buh"){echo "Please, <a href='index.php'>login</a>";exit;} */?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +43,7 @@ if(isset($_POST["enter"]))
 		/*move_uploaded_file($_FILES['photo']['tmp_name'], 'temp/'.$_FILES['photo']['name']);*/
 
 		$photo = pathinfo($_FILES['photo']['name'], PATHINFO_FILENAME);
-		
+
 		$extension = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
 
 		$date = date('Y-m-d!H:i:s');

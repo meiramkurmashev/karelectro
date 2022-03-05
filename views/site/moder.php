@@ -16,8 +16,7 @@ use yii\grid\GridView;
 	<title>Просмотр</title>
 </head>
 <body>
-	<a href='cars.php' style="color:black; font-size:24px; text-decoration:none">Автопарк ТОО "Карэлектроспецстрой"</a>
-	 <?= Html::a('Create Article', ['cars'], ['class' => 'btn btn-success']) ?>
+	<?= Html::a('Автопарк', ['cars'], ['style' => 'color:red']) ?>
 	<h3>Посмотреть:</h3>
 		<ul>
 			<li><a href='moderWorks.php' style="color:black; font-size:24px; text-decoration:none">Работы</a></li><br>

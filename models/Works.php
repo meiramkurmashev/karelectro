@@ -46,4 +46,9 @@ class Works extends \yii\db\ActiveRecord
             'date' => 'Date',
         ];
     }
+
+     public static function getAll()
+    {
+        return Works::find()->all();
+    }
 }
