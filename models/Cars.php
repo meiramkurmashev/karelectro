@@ -63,8 +63,9 @@ class Cars extends \yii\db\ActiveRecord
         return Cars::find()->select('carType')->distinct()->asArray()->column();
     }
 
-    public static function getNames()
+    public static function getNames($typeselected)
     {
-        return Cars::find()->select('carName')->asArray()->column();
+
+        return Cars::find()->select('carName')->where(["carType"=>$typeselected])->asArray()->column();
     }
 }

@@ -144,19 +144,24 @@ class SiteController extends Controller
     public function actionModerdetails()
     {
         $types = Cars::getTypes();
-        $names = Cars::getNames();
+
+        $typeselected = $_POST['type'];
+        $names = Cars::getNames($typeselected);
 
 
-        $details = Details::getAll();
        // var_dump($carsNames);die;
         return $this->render('moderDetails',[
-            'details' => $details,
+
             'types' => $types,
-            'names' => $names
+            'typeselected' => $typeselected,
+            'names' => $names,
+
 
 
     ]);
     }
+
+
 
     public function actionModeroil()
     {
