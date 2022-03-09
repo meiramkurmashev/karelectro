@@ -17,7 +17,7 @@ header('Content-Type: text/html; charset=utf-8');
 
 
 
-<table>
+<table border="1">
 
         <?php   $number = 1;?>
         <?php  foreach($cars as $car):?>
@@ -30,7 +30,7 @@ header('Content-Type: text/html; charset=utf-8');
   	   					<td width=40%><?= $car->carName;?></td>
   	   					<td width=6%><?= $car->carYear;?></td>
   	   					<td ><?= $car->carDriver1;?></td>
-     						<td ><?= $car->carDriver1;?></td>
+     						<td ><?= $car->carDriver2;?></td>
                               <td width=10%><?= $car->carObject;?></td>
 
      					</tr></form>

@@ -1,5 +1,5 @@
-<?php
-if($_COOKIE["login"]!="dir"){echo "Please, <a href='index.php'>login</a>";exit;}
+<?php /*
+if($_COOKIE["login"]!="dir"){echo "Please, <a href='index.php'>login</a>";exit;}*/
 ?>
 <?php
 error_reporting(-1);

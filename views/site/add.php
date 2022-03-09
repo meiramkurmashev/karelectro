@@ -2,7 +2,7 @@
 <!doctype=html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"> 
+  <meta charset="utf-8">
   <link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
   <link href="style.css" rel="stylesheet">
   <meta charset="UTF-8">
@@ -11,11 +11,11 @@
 	<?php error_reporting(-1);
 header('Content-Type: text/html; charset=utf-8'); //писал после обучения на php expert editor, но пошла непонятка с кодировками и нашел эту функцию,теперь норм. и пробую новое приложение, но уже в Sublim'е
 ?>
-<?php if($_COOKIE["login"]!='erlan'){echo "Please, <a href='index.php'>login</a>";exit;}?>
+<?php /*if($_COOKIE["login"]!='erlan'){echo "Please, <a href='index.php'>login</a>";exit;}*/?>
 <?php
 //функция из гугла по кукам[самому не получилось как на курсах учили-выдавало ошибку](номеру счета и дате, ибо с листа заполнять постоянно не надо механикам)
 function getNomerScheta($default = '') {
-    if (isset($_POST['nomerSch'])) {        
+    if (isset($_POST['nomerSch'])) {
         setcookie('nomerSch', $_POST['nomerSch'],time() + (3600 * 24 * 1));
         return $_POST['nomerSch'];
     }
@@ -30,7 +30,7 @@ $nomerScheta = getNomerScheta();
 
 
   function getData($default1 = '') {
-    if (isset($_POST['date'])) {        
+    if (isset($_POST['date'])) {
         setcookie('date', $_POST['date'],time() + (3600 * 24 * 1));
         return $_POST['date'];
     }
@@ -84,7 +84,7 @@ $data = getData();
          <option disabled selected class="hid"></option>
 			<? error_reporting(-1);
 			header('Content-Type: text/html; charset=utf-8');
-			  
+
 			  include("db.php");
 			  mysql_query("SET NAMES 'utf8';");
 			  mysql_query("SET CHARACTER SET 'utf8';");
@@ -98,7 +98,7 @@ $data = getData();
        <option  disabled selected class="hid"></option>
         <? error_reporting(-1);
 			header('Content-Type: text/html; charset=utf-8');
-			  
+
 			  include("db.php");
 			  mysql_query("SET NAMES 'utf8';");
 			  mysql_query("SET CHARACTER SET 'utf8';");
@@ -113,7 +113,7 @@ $data = getData();
        <option  disabled selected class="hid"></option>
        <? error_reporting(-1);
 			header('Content-Type: text/html; charset=utf-8');
-			  
+
 			  include("db.php");
 			  mysql_query("SET NAMES 'utf8';");
 			  mysql_query("SET CHARACTER SET 'utf8';");
@@ -127,7 +127,7 @@ $data = getData();
        <option disabled selected class="hid"></option>
 			<? error_reporting(-1);
 			header('Content-Type: text/html; charset=utf-8');
-			  
+
 			  include("db.php");
 			  mysql_query("SET NAMES 'utf8';");
 			  mysql_query("SET CHARACTER SET 'utf8';");
@@ -141,7 +141,7 @@ $data = getData();
       <option disabled selected class="hid"></option>
 			<? error_reporting(-1);
 			header('Content-Type: text/html; charset=utf-8');
-			  
+
 			  include("db.php");
 			  mysql_query("SET NAMES 'utf8';");
 			  mysql_query("SET CHARACTER SET 'utf8';");
@@ -155,7 +155,7 @@ $data = getData();
        <option disabled selected class="hid"></option>
 			<? error_reporting(-1);
 			header('Content-Type: text/html; charset=utf-8');
-			  
+
 			  include("db.php");
 			  mysql_query("SET NAMES 'utf8';");
 			  mysql_query("SET CHARACTER SET 'utf8';");
@@ -169,7 +169,7 @@ $data = getData();
        <option disabled selected class="hid"></option>
 			<? error_reporting(-1);
 			header('Content-Type: text/html; charset=utf-8');
-			  
+
 			  include("db.php");
 			  mysql_query("SET NAMES 'utf8';");
 			  mysql_query("SET CHARACTER SET 'utf8';");
@@ -183,7 +183,7 @@ $data = getData();
       <option disabled selected class="hid"></option>
 			<? error_reporting(-1);
 			header('Content-Type: text/html; charset=utf-8');
-			  
+
 			  include("db.php");
 			  mysql_query("SET NAMES 'utf8';");
 			  mysql_query("SET CHARACTER SET 'utf8';");
@@ -197,7 +197,7 @@ $data = getData();
        <option disabled selected class="hid"></option>
 			<? error_reporting(-1);
 			header('Content-Type: text/html; charset=utf-8');
-			  
+
 			  include("db.php");
 			  mysql_query("SET NAMES 'utf8';");
 			  mysql_query("SET CHARACTER SET 'utf8';");
@@ -211,7 +211,7 @@ $data = getData();
        <option disabled selected class="hid"></option>
 			<? error_reporting(-1);
 			header('Content-Type: text/html; charset=utf-8');
-			  
+
 			  include("db.php");
 			  mysql_query("SET NAMES 'utf8';");
 			  mysql_query("SET CHARACTER SET 'utf8';");
@@ -225,7 +225,7 @@ $data = getData();
       <option disabled selected class="hid"></option>
 			<? error_reporting(-1);
 			header('Content-Type: text/html; charset=utf-8');
-			  
+
 			  include("db.php");
 			  mysql_query("SET NAMES 'utf8';");
 			  mysql_query("SET CHARACTER SET 'utf8';");
@@ -239,7 +239,7 @@ $data = getData();
       <option disabled selected class="hid"></option>
 			<? error_reporting(-1);
 			header('Content-Type: text/html; charset=utf-8');
-			  
+
 			  include("db.php");
 			  mysql_query("SET NAMES 'utf8';");
 			  mysql_query("SET CHARACTER SET 'utf8';");
@@ -254,7 +254,7 @@ $data = getData();
       <option disabled selected class="hid"></option>
 			<? error_reporting(-1);
 			header('Content-Type: text/html; charset=utf-8');
-			  
+
 			  include("db.php");
 			  mysql_query("SET NAMES 'utf8';");
 			  mysql_query("SET CHARACTER SET 'utf8';");
@@ -269,7 +269,7 @@ $data = getData();
        <<option disabled selected class="hid"></option>
 			<? error_reporting(-1);
 			header('Content-Type: text/html; charset=utf-8');
-			  
+
 			  include("db.php");
 			  mysql_query("SET NAMES 'utf8';");
 			  mysql_query("SET CHARACTER SET 'utf8';");
@@ -283,7 +283,7 @@ $data = getData();
      <option disabled selected class="hid"></option>
 			<? error_reporting(-1);
 			header('Content-Type: text/html; charset=utf-8');
-			  
+
 			  include("db.php");
 			  mysql_query("SET NAMES 'utf8';");
 			  mysql_query("SET CHARACTER SET 'utf8';");
@@ -297,7 +297,7 @@ $data = getData();
       <option disabled selected class="hid"></option>
 			<? error_reporting(-1);
 			header('Content-Type: text/html; charset=utf-8');
-			  
+
 			  include("db.php");
 			  mysql_query("SET NAMES 'utf8';");
 			  mysql_query("SET CHARACTER SET 'utf8';");
@@ -311,7 +311,7 @@ $data = getData();
        <option disabled selected class="hid"></option>
 			<? error_reporting(-1);
 			header('Content-Type: text/html; charset=utf-8');
-			  
+
 			  include("db.php");
 			  mysql_query("SET NAMES 'utf8';");
 			  mysql_query("SET CHARACTER SET 'utf8';");
@@ -325,7 +325,7 @@ $data = getData();
       <option disabled selected class="hid"></option>
 			<? error_reporting(-1);
 			header('Content-Type: text/html; charset=utf-8');
-			  
+
 			  include("db.php");
 			  mysql_query("SET NAMES 'utf8';");
 			  mysql_query("SET CHARACTER SET 'utf8';");
@@ -339,7 +339,7 @@ $data = getData();
       <option disabled selected class="hid"></option>
 			<? error_reporting(-1);
 			header('Content-Type: text/html; charset=utf-8');
-			  
+
 			  include("db.php");
 			  mysql_query("SET NAMES 'utf8';");
 			  mysql_query("SET CHARACTER SET 'utf8';");
@@ -356,7 +356,7 @@ $data = getData();
 
 
   <label for="detail" class="form-label">Наименование</label>
-    
+
 	  <center><textarea name="detail" style="position:center; width:96%; height:80px; font-family: Arial; font-size: 14px"></textarea></center>
 
 
@@ -381,7 +381,7 @@ $data = getData();
     <input type="firm" name="firm" class="form-control" style="width:30%" id="firm" ><br>
 
   <button   class="new" name="enter" color=red type="submit" >Добавить</button>
-  
+
 <?php
 
 if(isset($_POST["enter"]))
@@ -419,19 +419,19 @@ mysql_query("SET SESSION collation_connection = 'utf8_general_ci';");
    $date = $_POST["date"]  ;
    $nomerSch =  $_POST["nomerSch"]   ;
    $firm =  $_POST["firm"]   ;
-	 //poshli proverki na pustoty 
+	 //poshli proverki na pustoty
    if (empty ($col)) {echo "<h3 style='color:red'>Неверное количество, попрубуйте снова<h3>";exit;}
    if (empty ($sum)) {echo "<h3 style='color:red'>Неверно указана сумма, попрубуйте снова<h3>";exit;}
    if (empty ($date)) {echo "<h3 style='color:red'>Неверно указана дата, попрубуйте снова<h3>";exit;}
 	if (empty ($nomerSch)) {echo "<h3 style='color:red'>Не указан номер счета, попрубуйте снова<h3>";exit;}
 	if (empty ($firm)) {echo "<h3 style='color:red'>Неверно указан поставщик, попрубуйте снова<h3>";exit;}
-   
+
  mysql_query("insert into details(type,car,name,col,sum,date,number,firm)
    values('$type','$car','$detail','$col','$sum','$date','$nomerSch','$firm')")or die (mysql_error()) ;//запись в таблицу details соответствующих значений из формы
      echo "<h2 style='color:#91ff00'>Добавлено</h2>";
     echo "<script>setTimeout('location=\"add.php\"',1000)</script>";
 }
-?>  
+?>
 
 </form>
 

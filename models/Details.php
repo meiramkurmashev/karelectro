@@ -65,4 +65,6 @@ class Details extends \yii\db\ActiveRecord
     {
         return Details::find()->all();
     }
+
+
 }

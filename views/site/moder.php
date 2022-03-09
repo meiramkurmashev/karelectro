@@ -16,13 +16,13 @@ use yii\grid\GridView;
 	<title>Просмотр</title>
 </head>
 <body>
-	<?= Html::a('Автопарк', ['cars'], ['style' => 'color:red']) ?>
+	<?= Html::a('Автопарк', ['cars'], ['style' => 'color:black; font-size:24px; text-decoration:none']) ?>
 	<h3>Посмотреть:</h3>
 		<ul>
-			<li><a href='moderWorks.php' style="color:black; font-size:24px; text-decoration:none">Работы</a></li><br>
-			<li><a href='moderDetails.php' style="color:black; font-size:24px; text-decoration:none">Детали</a></li><br>
-			<li><a href='moderOil.php' style="color:black; font-size:24px; text-decoration:none">расход ГСМ</a></li><br>
-			<li><a href='moderPays.php' style="color:black; font-size:24px; text-decoration:none">Платежи на одобрение</a></li>
+			<li><?= Html::a('Работы', ['moderworks'], ['style' => 'color:black; font-size:24px; text-decoration:none']) ?></li><br>
+			<li><?= Html::a('Детали', ['moderdetails'], ['style' => 'color:black; font-size:24px; text-decoration:none']) ?></li><br>
+			<li><?= Html::a('ГСМ', ['moderoil'], ['style' => 'color:black; font-size:24px; text-decoration:none']) ?></li><br>
+			<li><?= Html::a('Платежи на одобрение', ['moderpays'], ['style' => 'color:black; font-size:24px; text-decoration:none']) ?></li>
 
 		</ul><br>
 </body>

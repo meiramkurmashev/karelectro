@@ -1,6 +1,6 @@
 <?php
 include("fon.php");?>
-<?php  if($_COOKIE["login"]!="madiyar"){echo "Please, <a href='index.php'>login</a>";exit;} ?>
+<?php /* if($_COOKIE["login"]!="madiyar"){echo "Please, <a href='index.php'>login</a>";exit;}*/ ?>
 
 <?php
 function getData($default1 = '') {

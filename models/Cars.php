@@ -3,7 +3,7 @@
 namespace app\models;
 
 use Yii;
-
+use yii\helpers\ArrayHelper;
 /**
  * This is the model class for table "cars".
  *
@@ -56,5 +56,15 @@ class Cars extends \yii\db\ActiveRecord
     public static function getAll()
     {
         return Cars::find()->all();
+    }
+
+    public static function getTypes()
+    {
+        return Cars::find()->select('carType')->distinct()->asArray()->column();
+    }
+
+    public static function getNames()
+    {
+        return Cars::find()->select('carName')->asArray()->column();
     }
 }
