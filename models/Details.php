@@ -61,10 +61,15 @@ class Details extends \yii\db\ActiveRecord
         ];
     }
 
-     public static function getAll()
+    public static function getDetails($carselected)
     {
-        return Details::find()->all();
+
+        return Details::find()->where(["car" => $carselected])->orderBy('date')->all();
     }
 
+      public function getDate()
+    {
+        return Yii::$app->formatter->asDate($this->date);
+    }
 
 }
