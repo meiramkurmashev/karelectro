@@ -217,8 +217,10 @@ class SiteController extends Controller
 
      public function actionOil()
     {
-      if( Yii::$app->user->identity->isOil) { return $this->render('moder');} else {return $this->render('pleaseAuth');}
-        return $this->render('oil');
+      if( Yii::$app->user->identity->isDis) {
+          return $this->render('oil');
+      } else {return $this->render('pleaseAuth');}
+
     }
 
 
