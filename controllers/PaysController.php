@@ -6,6 +6,20 @@ use app\models\Pays;
 use yii\base\Model;
 use yii\web\UploadedFile;
 use yii\filters\AccessControl;
+use app\models\LoginForm;
+
+use app\models\Cars;
+use app\models\Details;
+use app\models\Oil;
+use app\models\User;
+use app\models\Works;
+use app\models\Objects;
+
+use yii\web\Controller;
+use yii\web\Response;
+use yii\filters\VerbFilter;
+
+use app\models\ContactForm;
 
 class PaysController extends \yii\web\Controller
 {

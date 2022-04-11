@@ -237,7 +237,7 @@ class SiteController extends Controller
 
      public function actionCars()
     {
-      if( Yii::$app->user->identity->isMeh) {
+      if( Yii::$app->user->identity->isDir || Yii::$app->user->identity->isDis) {
            $cars = Cars::getAll();
             return $this->render('cars' ,[
 
