@@ -211,7 +211,9 @@ class SiteController extends Controller
 
      public function actionAdd()
     {
-      if( Yii::$app->user->identity->isMeh) {return $this->render('add');} else {return $this->render('pleaseAuth');}
+      if( Yii::$app->user->identity->isMeh) {
+        return $this->render('add');
+      } else {return $this->render('pleaseAuth');}
 
     }
 
@@ -227,20 +229,22 @@ class SiteController extends Controller
 
      public function actionWorks()
     {
-      if( Yii::$app->user->identity->isNac) { return $this->render('works');} else {return $this->render('pleaseAuth');}
+      if( Yii::$app->user->identity->isNac) {
+        return $this->render('works');
+      } else {return $this->render('pleaseAuth');}
 
     }
 
      public function actionCars()
     {
-      if( Yii::$app->user->identity->isMeh) { return $this->render('cars');} else {return $this->render('pleaseAuth');}
-        $cars = Cars::getAll();
-        return $this->render('cars' ,[
+      if( Yii::$app->user->identity->isMeh) {
+           $cars = Cars::getAll();
+            return $this->render('cars' ,[
 
-         'cars' => $cars
+             'cars' => $cars
+              ]);}
+      else {return $this->render('pleaseAuth');}
 
-
-    ]);
     }
 
 
