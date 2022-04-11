@@ -47,8 +47,15 @@ class Works extends \yii\db\ActiveRecord
         ];
     }
 
-     public static function getAll()
+     public static function getWorks($objectselected)
     {
-        return Works::find()->all();
+
+          return Works::find()->where(["object" => $objectselected])->orderBy('date DESC')->all();
+    }
+
+    public function getDate()
+    {
+
+        return Yii::$app->formatter->asDate($this->date);
     }
 }

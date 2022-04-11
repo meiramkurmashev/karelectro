@@ -65,11 +65,11 @@ use yii\helpers\Html;
 
   		 <?php foreach ($details as $detail):?>
 
-  	   					<td width=26%><?= $detail->name?> </td>
-  	   					<td width=1,5% align='center'><?= $detail->col?></td>
-     						<td width=7,5% align='right'><?= $detail->sum?>  </td>
-     						<td width=10% align='center'><?= $detail->getDate()?></td>
-     						<td width=10%><?= $detail->number?></td>
+  	   					<td width=34%><?= $detail->name?> </td>
+  	   					<td width=2,5%><?= $detail->col?></td>
+     						<td width=8,5% ><?= $detail->sum?>  </td>
+     						<td width=14% ><?= $detail->getDate()?></td>
+     						<td width=13%><?= $detail->number?></td>
      						<td width=28%><?= $detail->firm?></td>
 
 

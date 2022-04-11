@@ -57,4 +57,16 @@ class Oil extends \yii\db\ActiveRecord
     {
         return Oil::find()->all();
     }
+
+      public static function getOil($objectselected)
+    {
+
+          return Oil::find()->where(["object" => $objectselected])->orderBy('date DESC')->all();
+    }
+
+    public function getDate()
+    {
+        return Yii::$app->formatter->asDate($this->date);
+    }
+
 }

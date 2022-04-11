@@ -22,7 +22,7 @@ use yii\grid\GridView;
 			<li><?= Html::a('Работы', ['moderworks'], ['style' => 'color:black; font-size:24px; text-decoration:none']) ?></li><br>
 			<li><?= Html::a('Детали', ['moderdetails'], ['style' => 'color:black; font-size:24px; text-decoration:none']) ?></li><br>
 			<li><?= Html::a('ГСМ', ['moderoil'], ['style' => 'color:black; font-size:24px; text-decoration:none']) ?></li><br>
-			<li><?= Html::a('Платежи на одобрение', ['moderpays'], ['style' => 'color:black; font-size:24px; text-decoration:none']) ?></li>
+			<li><?= Html::a('Платежи на одобрение', ['/pays/update'], ['style' => 'color:black; font-size:24px; text-decoration:none']) ?></li>
 
 		</ul><br>
 </body>

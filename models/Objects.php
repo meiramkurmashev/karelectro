@@ -38,4 +38,10 @@ class Objects extends \yii\db\ActiveRecord
             'object' => 'Object',
         ];
     }
+
+       public static function getObjects()
+    {
+
+        return Objects::find()->asArray()->column();
+    }
 }

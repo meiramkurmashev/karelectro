@@ -5,6 +5,10 @@ namespace app\controllers;
 use Yii;
 use app\models\Cars;
 use app\models\Details;
+use app\models\Oil;
+use app\models\User;
+use app\models\Works;
+use app\models\Objects;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
@@ -73,6 +77,7 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -87,6 +92,8 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+
+
 
     /**
      * Logout action.
@@ -130,12 +137,23 @@ class SiteController extends Controller
 
      public function actionModer()
     {
-        return $this->render('moder');
+        if( Yii::$app->user->identity->isDir) { return $this->render('moder');} else {return $this->render('pleaseAuth');}
+
     }
 
     public function actionModerworks()
     {
-        return $this->render('moderWorks');
+      if( Yii::$app->user->identity->isDir) {
+          $objects = Objects::getObjects();
+          $objectselected = $_POST['object'];
+          $works = Works::getWorks($objectselected);
+          return $this->render('moderWorks',[
+            'objects'=>$objects,
+            'objectselected'=>$objectselected,
+            'works'=>$works
+            ]);}
+      else {return $this->render('pleaseAuth');}
+
     }
 
 
@@ -143,90 +161,77 @@ class SiteController extends Controller
 
     public function actionModerdetails()
     {
-        $types = Cars::getTypes();
+      if( Yii::$app->user->identity->isDir) {
+          $types = Cars::getTypes();
+          $typeselected = $_POST['type'];
+          $names = Cars::getNames($typeselected);
+          $carselected = $_POST['car1'];
+          $typeselectedToDetails = $_POST['object1'];
 
-        $typeselected = $_POST['type'];
-        $names = Cars::getNames($typeselected);
-        $carselected = $_POST['car1'];
-        $typeselectedToDetails = $_POST['object1'];
-
-        $details = Details::getDetails($carselected);
-        //$details = Details::getDetails($carselected);
-
-
-
-       // var_dump($carsNames);die;
-        return $this->render('moderDetails',[
-
-            'types' => $types,
-            'typeselected' => $typeselected,
-            'names' => $names,
-            'details'=>$details,
-            'carselected'=>$carselected,
-            'typeselectedToDetails'=>$typeselectedToDetails
+          $details = Details::getDetails($carselected);
+          //$details = Details::getDetails($carselected);
 
 
 
-    ]);
+         // var_dump($carsNames);die;
+          return $this->render('moderDetails',[
+
+              'types' => $types,
+              'typeselected' => $typeselected,
+              'names' => $names,
+              'details'=>$details,
+              'carselected'=>$carselected,
+              'typeselectedToDetails'=>$typeselectedToDetails
+            ]);}
+        else {return $this->render('pleaseAuth');}
+
     }
 
-      public function actionModerdetails1()
-    {
 
-        $carselected = $_POST['car1'];
-
-
-
-
-
-
-       // var_dump($carsNames);die;
-        return $this->render('moderDetails1',[
-
-
-            'details'=>$details,
-
-
-
-
-    ]);
-    }
 
 
     public function actionModeroil()
     {
-        return $this->render('moderoil');
+        if( Yii::$app->user->identity->isDir) {
+              $objects = Objects::getObjects();
+              $objectselected = $_POST['object'];
+              $oils = Oil::getOil($objectselected);
+              return $this->render('moderoil',[
+
+                 'objects'=>$objects,
+                'objectselected'=>$objectselected,
+                'oils'=>$oils
+                ]);}
+        else {return $this->render('pleaseAuth');}
+
     }
 
-    public function actionModerpays()
-    {
-        return $this->render('moderPays');
-    }
 
 
 
      public function actionAdd()
     {
-        return $this->render('add');
+      if( Yii::$app->user->identity->isMeh) {return $this->render('add');} else {return $this->render('pleaseAuth');}
+
     }
 
      public function actionOil()
     {
+      if( Yii::$app->user->identity->isOil) { return $this->render('moder');} else {return $this->render('pleaseAuth');}
         return $this->render('oil');
     }
 
-     public function actionPays()
-    {
-        return $this->render('pays');
-    }
+
 
      public function actionWorks()
     {
-        return $this->render('works');
+      if( Yii::$app->user->identity->isNac) { return $this->render('works');} else {return $this->render('pleaseAuth');}
+
     }
 
      public function actionCars()
     {
+      if( Yii::$app->user->identity->isMeh) { return $this->render('cars');} else {return $this->render('pleaseAuth');}
         $cars = Cars::getAll();
         return $this->render('cars' ,[
 
