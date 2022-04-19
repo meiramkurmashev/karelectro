@@ -11,10 +11,10 @@ use yii\widgets\ActiveForm;
 		<a href="index">Информация о платежных поручениях</a><br>
 <?php $form = ActiveForm::begin();?>
 
-		<?php echo $form->field($model, 'name') ?>
-		<?php echo $form->field($model, 'photo')->fileinput(); ?>
+		<?php echo $form->field($model, 'name')->label('Название') ?>
+		<?php echo $form->field($model, 'photo')->fileinput()->label('Фото'); ?>
 		<?php echo $form->field($model, 'date')->input('date'); ?>
-		<?php echo $form->field($model, 'comment'); ?>
+		<?php echo $form->field($model, 'comment')->label('Комментарий'); ?>
 		<input  type=submit name=enter value="Внести">
 
 <?php ActiveForm::end() ?>

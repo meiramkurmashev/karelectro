@@ -30,7 +30,7 @@ class Oil extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['object', 'car', 'date', 'oil', 'comment'], 'required'],
+            [[ 'car', 'date', 'oil', 'comment'], 'required'],
             [['date'], 'safe'],
             [['oil'], 'integer'],
             [['object', 'car'], 'string', 'max' => 50],

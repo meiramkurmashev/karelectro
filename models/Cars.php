@@ -68,4 +68,15 @@ class Cars extends \yii\db\ActiveRecord
 
         return Cars::find()->select('carName')->where(["carType"=>$typeselected])->asArray()->column();
     }
+
+    public static function getCar($objectselected)
+  {
+
+         return Cars::find()->select('carName')->where(["carObject" => $objectselected])->asArray()->column();
+  }
+
+    public function getDate()
+    {
+        return Yii::$app->formatter->asDate($this->date);
+    }
 }

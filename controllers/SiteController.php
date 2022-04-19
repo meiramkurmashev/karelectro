@@ -3,12 +3,12 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Cars;
 use app\models\Details;
 use app\models\Oil;
 use app\models\User;
 use app\models\Works;
 use app\models\Objects;
+use app\models\Cars;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
@@ -196,7 +196,7 @@ class SiteController extends Controller
               $objects = Objects::getObjects();
               $objectselected = $_POST['object'];
               $oils = Oil::getOil($objectselected);
-              return $this->render('moderoil',[
+              return $this->render('moderOil',[
 
                  'objects'=>$objects,
                 'objectselected'=>$objectselected,
@@ -205,7 +205,6 @@ class SiteController extends Controller
         else {return $this->render('pleaseAuth');}
 
     }
-
 
 
 
@@ -219,10 +218,40 @@ class SiteController extends Controller
 
      public function actionOil()
     {
-      if( Yii::$app->user->identity->isDis) {
-          return $this->render('oil');
-      } else {return $this->render('pleaseAuth');}
+        if( Yii::$app->user->identity->isDis) {
 
+
+                        $model = new Oil();
+                        $objects = Objects::getObjects();
+                        $objectselected = $_POST['object'];
+
+                        $objectCar = Cars::getCar($objectselected);
+
+                       // if (Yii::$app->request->post()){
+                           // var_dump($objectCar);die;
+                           // var_dump($objectCar);die;
+
+                         //  $model->load(Yii::$app->request->post());
+
+                          // $model->save();
+                          // Yii::$app->session->setFlash('success','Платежка добавлена');
+                          //  return $this->redirect(['site/oil']);}
+
+
+
+                         $model->load(Yii::$app->request->post());
+                          if($model->save()){
+                               //  var_dump($_POST['car']);die;
+                            Yii::$app->session->setFlash('success','Запись добавлена');
+                            return $this->redirect(['site/oil']);}
+                        return $this->render('oil',[
+                            'model'=>$model,
+                            'objects'=>$objects,
+                            'objectselected'=>$objectselected,
+                            'objectCar'=>$objectCar
+                        ]);}
+            else
+            {return $this->render('pleaseAuth');}
     }
 
 
