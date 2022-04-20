@@ -31,7 +31,8 @@ header('Content-Type: text/html; charset=utf-8');
   	   					<td width=6%><?= $car->carYear;?></td>
   	   					<td ><?= $car->carDriver1;?></td>
      						<td ><?= $car->carDriver2;?></td>
-                              <td width=10%><?= $car->carObject;?></td>
+                <td width=10%><?= $car->carObject;?></td>
+                <td width=25%><a class="btn-s btn-success" href="<?= Url::toRoute(['cars/update', 'id'=>$pay->id]);?>">Одобрить</a></td>
 
      					</tr></form>
 				 <? $number++?>
