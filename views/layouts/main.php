@@ -37,11 +37,11 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav'],
         'items' => [
-            ['label' => 'Руководителю', 'url' => ['/site/moder']],
-            ['label' => 'Детали', 'url' => ['/site/add']],
-            ['label' => 'ГСМ', 'url' => ['/site/oil']],
-            ['label' => 'Счета', 'url' => ['/pays/create']],
-            ['label' => 'Работы', 'url' => ['/site/works']],
+            ['label' => 'РУКОВОДИТЕЛЮ', 'url' => ['/site/moder']],
+            ['label' => 'ДИСПЕТЧЕРУ', 'url' => ['/site/oil']],
+            ['label' => 'БУХГАЛТЕРУ', 'url' => ['/pays/create']],
+            ['label' => 'НАЧАЛЬНИКУ УЧАСТКА', 'url' => ['/site/works']],
+			['label' => 'МЕХАНИКУ', 'url' => ['/site/add']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Авторизоваться', 'url' => ['/site/login']]
             ) : (
