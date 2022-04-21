@@ -259,7 +259,17 @@ class SiteController extends Controller
      public function actionWorks()
     {
       if( Yii::$app->user->identity->isNac) {
-        return $this->render('works');
+        $model = new Works();
+        $objects = Objects::getObjects();
+
+        if($model->load(Yii::$app->request->post()) && $model->save()){
+               //  var_dump($_POST['car']);die;
+            Yii::$app->session->setFlash('success','Запись добавлена');
+            return $this->redirect(['site/works']);}
+        return $this->render('works',[
+          'model'=>$model,
+          'objects'=>$objects,
+        ]);
       } else {return $this->render('pleaseAuth');}
 
     }

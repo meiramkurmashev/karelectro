@@ -1,7 +1,7 @@
 <?php
 
 namespace app\controllers;
-
+use Yii;
 use app\models\Cars;
 use app\models\CarsSearch;
 use yii\web\Controller;
@@ -16,6 +16,7 @@ class CarsController extends Controller
     /**
      * @inheritDoc
      */
+
     public function behaviors()
     {
         return array_merge(
@@ -27,6 +28,7 @@ class CarsController extends Controller
                         'delete' => ['POST'],
                     ],
                 ],
+
             ]
         );
     }
@@ -38,6 +40,7 @@ class CarsController extends Controller
      */
     public function actionIndex()
     {
+
         $searchModel = new CarsSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
@@ -67,19 +70,24 @@ class CarsController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Cars();
+         if( Yii::$app->user->identity->isDir || Yii::$app->user->identity->isDis)
+        {
 
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
-        } else {
-            $model->loadDefaultValues();
+                $model = new Cars();
+
+                if ($this->request->isPost) {
+                    if ($model->load($this->request->post()) && $model->save()) {
+                        return $this->redirect(['view', 'id' => $model->id]);
+                    }
+                } else {
+                    $model->loadDefaultValues();
+                }
+
+                return $this->render('create', [
+                    'model' => $model,
+                ]);
         }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
+        else {return $this->render('pleaseAuth');}
     }
 
     /**
@@ -91,15 +99,20 @@ class CarsController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+         if( Yii::$app->user->identity->isDir || Yii::$app->user->identity->isDis)
+        {
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            $model = $this->findModel($id);
+
+            if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+
+            return $this->render('update', [
+                'model' => $model,
+            ]);
         }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
+        else {return $this->render('pleaseAuth');}
     }
 
     /**
@@ -111,9 +124,14 @@ class CarsController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        if( Yii::$app->user->identity->isDir)
+        {
 
-        return $this->redirect(['index']);
+            $this->findModel($id)->delete();
+
+            return $this->redirect(['index']);
+        }
+        else {return $this->render('pleaseAuth');}
     }
 
     /**

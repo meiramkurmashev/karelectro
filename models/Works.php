@@ -28,6 +28,7 @@ class Works extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [[ 'work', 'date', 'object'], 'required'],
             [['date'], 'safe'],
             [['object'], 'string', 'max' => 50],
             [['work'], 'string', 'max' => 500],

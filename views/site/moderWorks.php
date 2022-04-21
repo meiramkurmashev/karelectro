@@ -39,8 +39,8 @@ if($_COOKIE["login"]!="dir"){echo "Please, <a href='index.php'>login</a>";exit;}
 		    <label>Начало</label>
 		    <input type="date" name="dateS">
 		    <label>Конец</label>
-		    <input type="date" name="datePo"><br>--->
-		    <input  <?php if(isset($_POST['enter'])){ echo "style='display:none'"; } ?> class="btn-xs btn-success" type=submit name=enter value=Показать><br>
+		    <input type="date" name="datePo"><br>---><br>
+		    <input  <?php if(isset($_POST['enter'])){ echo "style='display:none'"; } ?> class="btn btn-success" type=submit name=enter value=Показать><br>
 
 		    <?= Html::endForm() ?>
 
