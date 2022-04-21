@@ -211,8 +211,23 @@ class SiteController extends Controller
      public function actionAdd()
     {
       if( Yii::$app->user->identity->isMeh) {
-        return $this->render('add');
-      } else {return $this->render('pleaseAuth');}
+          $model = new Details();
+          $types = Cars::getTypes();
+            $typeselected = $_POST['type'];
+            $carsToType = Cars::getNames($typeselected);
+          $model->load(Yii::$app->request->post());
+            if($model->save()){
+                 //  var_dump($_POST['car']);die;
+              Yii::$app->session->setFlash('success','Запись добавлена');
+              return $this->redirect(['site/add']);}
+          return $this->render('add',[
+              'model'=>$model,
+              'types'=>$types,
+              'typeselected'=>$typeselected,
+              'carsToType'=>$carsToType
+
+          ]);}
+      else {return $this->render('pleaseAuth');}
 
     }
 
